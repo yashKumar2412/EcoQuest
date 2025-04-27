@@ -14,7 +14,8 @@ function showLeaderboard() {
 }
 
 function makeLeaderboard() {
-  fetch('http://127.0.0.1:8000/leaderboard')
+  url = BACKEND_URL + '/leaderboard';
+  fetch(url)
     .then(resp => resp.json())
     .then(data => {
       const leaderboard = data.leaderboard;
@@ -50,7 +51,9 @@ function submitReport() {
     timestamp: new Date().toISOString()
   };
 
-  fetch('http://127.0.0.1:8000/report', {
+  url = BACKEND_URL + '/report';
+
+  fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
