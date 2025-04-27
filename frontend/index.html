@@ -9,22 +9,26 @@
 <body>
   <h2>EcoQuest</h2>
   
-  <div id="map"></div>
+  <div class="main-container">
+    <div id="map"></div>
+    
+    <div class="sidebar">
+      <div id="leaderboard">
+        <h3>Leaderboard 🏆</h3>
+        <ul id="leaderboardList">
+            <li>Loading...</li>
+        </ul>
+        </div>
 
-  <div id="upload-section">
-    <h3>Upload Trash Photo 📷</h3>
-    <input type="file" id="photoInput" accept="image/*">
-    <button onclick="submitReport()">Submit Report</button>
+      <div id="upload-section">
+        <h3>Upload Trash Photo 📷</h3>
+        <input type="file" id="photoInput" accept="image/*">
+        <button onclick="submitReport()">Submit Report</button>
+      </div>
+
+    </div>
   </div>
 
-  <div id="leaderboard">
-    <h3>Leaderboard 🏆</h3>
-    <ul id="leaderboardList">
-      <li>Loading...</li>
-    </ul>
-  </div>
-
-  <!-- Add the API script for Google Maps -->
   <script src="secrets/config.js"></script> 
   <script src="map.js"></script>
   <script src="features.js"></script>

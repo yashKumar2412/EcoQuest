@@ -1,103 +1,137 @@
-/* General reset and font */
 body, html {
     height: 100%;
     margin: 0;
+    padding: 0;
     font-family: 'Poppins', Arial, sans-serif;
     background: #f5f7fa;
     color: #333;
-  }
-  
-  /* Centered Title */
-  h2 {
+    overflow-x:hidden;
+}
+
+h2 {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
     font-size: 2.5rem;
     color: #2E8B57;
-  }
-  
-  /* Map styling */
-  #map {
+    text-transform: uppercase;
+}
+
+
+.main-container {
+    display: flex;
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+
+#map {
+    flex: 2;
     height: 70vh;
-    width: 80%;
-    margin: 20px auto;
+    min-height: 600px;
     border-radius: 20px;
     box-shadow: 0px 0px 6px 6px rgba(0, 225, 53, 0.2);
-  }
-  
-  /* Upload Section */
-  #upload-section {
-    padding: 20px;
+}
+
+
+.sidebar {
+    flex: 1; 
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#upload-section {
+    padding: 25px;
+    align-content: center;
     background: #ffffff;
-    width: 80%;
-    margin: 20px auto;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: none; /* Hidden initially */
-  }
-  
-  #upload-section h3 {
-    margin-bottom: 10px;
+}
+
+#upload-section h3 {
+    margin-bottom: 20px;
     color: #4CAF50;
-  }
-  
-  #upload-section input[type="file"], 
-  #upload-section button {
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#upload-section input[type="file"] {
+    padding: 12px 20px;
     font-size: 1rem;
     border-radius: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  #upload-section button {
+    border: 1px solid #00c756;
+    width: 60%;
+    display: block;
+}
+
+#upload-section button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  #upload-section button:hover {
+    width: 65%;
+    display: block;
+    margin-top: 15px;
+}
+
+
+#upload-section button:hover {
     background-color: #45a049;
-  }
-  
-  /* Leaderboard */
-  #leaderboard {
-    padding: 20px;
+}
+
+
+#leaderboard {
+    padding: 25px;
     background: #e8f5e9;
-    width: 80%;
-    margin: 20px auto;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  
-  #leaderboard h3 {
-    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+#leaderboard h3 {
+    margin-bottom: 20px;
     color: #2E7D32;
-  }
-  
-  #leaderboard ul {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#leaderboard ul {
     list-style: none;
     padding: 0;
-  }
-  
-  #leaderboard ul li {
+    margin: 0;
+}
+
+#leaderboard ul li {
     background: #ffffff;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 12px;
+    padding: 12px 15px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 2px;
-    border-color: #333;
-  }
-  
-  /* Small screen responsive */
-  @media (max-width: 768px) {
-    #map, #upload-section, #leaderboard {
-      width: 95%;
+    font-weight: 500;
+}
+
+
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
     }
-  }
-  
+    
+    .sidebar {
+        max-width: 100%;
+        order: 2; 
+    }
+    
+    #map {
+        order: 1;
+        height: 50vh;
+        min-height: 400px;
+        flex: 1;
+    }
+}
