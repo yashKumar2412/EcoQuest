@@ -42,23 +42,19 @@ function submitReport() {
     return;
   }
 
-  const reportData = {
-    username: LOGGED_IN_USERNAME,
-    description: "Trash spotted via app",
-    latitude: selectedLatLng.lat,
-    longitude: selectedLatLng.lng,
-    image_url: "https://dummyimage.com/600x400/000/fff",
-    timestamp: new Date().toISOString()
-  };
+  const formData = new FormData();
+  formData.append('username', LOGGED_IN_USERNAME);
+  formData.append('description', "Trash spotted via app");
+  formData.append('latitude', selectedLatLng.lat);
+  formData.append('longitude', selectedLatLng.lng);
+  formData.append('timestamp', new Date().toISOString());
+  formData.append('file', fileInput.files[0]);
 
-  url = BACKEND_URL + '/report';
+  const url = BACKEND_URL + '/report';
 
   fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(reportData)
+    body: formData
   })
   .then(resp => resp.json())
   .then(data => {
