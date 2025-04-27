@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from app.models import Report
-from app.db import add_report, get_leaderboard
+from app.db import add_report, get_leaderboard, get_user_reports
 
 app = FastAPI()
 
@@ -65,4 +65,13 @@ def leaderboard():
         return {"leaderboard": top_users}
     except Exception as e:
         print("Error during /leaderboard:", e)
+        return JSONResponse(status_code=500, content={"message": str(e)})
+
+@app.get("/reports")
+async def reports(username: str):
+    try:
+        reports = get_user_reports(username)
+        return {"reports": reports}
+    except Exception as e:
+        print("Error during /reports:", e)
         return JSONResponse(status_code=500, content={"message": str(e)})

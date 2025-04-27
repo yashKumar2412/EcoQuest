@@ -1,10 +1,11 @@
 import os
 import random
 from datetime import datetime, timedelta, timezone
+import uuid
+import shutil
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# Initialize Firebase
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SERVICE_ACCOUNT_PATH = os.path.join(BASE_DIR, "app", "secrets", "ecoquest-1d6af-firebase-adminsdk-fbsvc-94146cbe3d.json")
 
@@ -75,10 +76,26 @@ for user in sample_users:
     for _ in range(num_reports):
         lat_variation = random.uniform(-0.01, 0.01)
         lon_variation = random.uniform(-0.01, 0.01)
-        timestamp = (datetime.now(timezone.utc) - timedelta(hours=random.randint(0, 48))).isoformat()
+        
+        days_ago = random.randint(0, 365)
+        hours_ago = random.randint(0, 23)
+        minutes_ago = random.randint(0, 59)
+        seconds_ago = random.randint(0, 59)
+
+        random_offset = timedelta(days=days_ago, hours=hours_ago, minutes=minutes_ago, seconds=seconds_ago)
+        timestamp = (datetime.now(timezone.utc) - random_offset).isoformat()
 
         image_choice = random.randint(1, 5)
-        image_url = f"/images/{image_choice}.jpeg"
+        image_filename = f"{image_choice}.jpeg"
+
+        unique_filename = f"{uuid.uuid4().hex}.jpeg"
+
+        source_path = os.path.join(BASE_DIR, "app", "images", image_filename)
+        destination_path = os.path.join(BASE_DIR, "uploads", unique_filename)
+
+        shutil.copyfile(source_path, destination_path)
+
+        image_url = f"http://127.0.0.1:8000/uploads/{unique_filename}"
 
         report_data = {
             "username": user["username"],

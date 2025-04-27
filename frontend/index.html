@@ -17,6 +17,7 @@
     <button onclick="showUpload()">🧹 Report a Cleanup</button>
     <button onclick="showLeaderboard()">🏆 View Leaderboard</button>
     <button onclick="showBadges()">🎖️ View Badges</button>
+    <button onclick="showMyReports()">📋 My Reports</button>
   </div>
 
   <div id="main-content">
@@ -24,7 +25,11 @@
 
     <div id="upload-section" class="card hidden">
       <h3>Upload Cleanup Photo 📷</h3>
-      <input type="file" id="photoInput" accept="image/*">
+      <input type="file" id="photoInput" accept="image/*"><br><br>
+
+      <label for="descriptionInput">Description:</label><br>
+      <textarea id="descriptionInput" rows="3" cols="30" placeholder="Describe the issue..."></textarea><br><br>
+
       <button onclick="submitReport()">Submit Report</button>
     </div>
 
@@ -39,6 +44,13 @@
       <h3>Your Badges 🎖️</h3>
       <div id="badgeCards" class="badge-container"></div>
     </div>
+
+    <div id="my-reports" class="card hidden">
+      <h3>My Cleanup Reports 📋</h3>
+      <div id="reportList">
+        <p>Loading...</p>
+      </div>
+    </div>    
   </div>
 
   <script src="secrets/config.js"></script>

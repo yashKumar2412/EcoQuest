@@ -35,3 +35,17 @@ def get_leaderboard():
     users_ref = db.collection('users').order_by('points', direction=firestore.Query.DESCENDING).limit(10)
     users = users_ref.stream()
     return [{"username": user.to_dict()["username"], "points": user.to_dict()["points"]} for user in users]
+
+def get_user_reports(username):
+    reports_ref = db.collection('reports').where('username', '==', username)
+    reports = reports_ref.stream()
+
+    reports_list = [report.to_dict() for report in reports]
+
+    sorted_reports = sorted(
+        reports_list,
+        key=lambda r: r.get('timestamp', ''),
+        reverse=True
+    )
+
+    return sorted_reports
