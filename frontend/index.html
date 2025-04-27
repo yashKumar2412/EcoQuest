@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h2 style="text-align:center;">EcoQuest </h2>
+  <h2>EcoQuest</h2>
   
   <div id="map"></div>
 
@@ -23,7 +23,18 @@
       <li>Loading...</li>
     </ul>
   </div>
-      <script src="app.js"></script>
+
+  <!-- Add the API script for Google Maps -->
+  <script src="secrets/config.js"></script> 
+  <script src="map.js"></script>
+  <script src="features.js"></script>
+  
+  <script>
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  </script>
 </body>
 </html>
-
