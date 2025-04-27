@@ -128,4 +128,4 @@ This project is open source under the [MIT License](LICENSE).
 
 ---
 
-### 🌎 EcoQuest — Clean Cities. Connected Communities. 🪹
+### 🌎 EcoQuest — Gamify Cleanups. Empower Communities. 🪹
