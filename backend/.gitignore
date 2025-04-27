@@ -1,3 +1,4 @@
 app/secrets
 app/__pycache__
+app/images
 uploads

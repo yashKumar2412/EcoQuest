@@ -16,6 +16,7 @@
   <div id="main-buttons">
     <button onclick="showUpload()">🧹 Report a Cleanup</button>
     <button onclick="showLeaderboard()">🏆 View Leaderboard</button>
+    <button onclick="showBadges()">🎖️ View Badges</button>
   </div>
 
   <div id="main-content">
@@ -33,6 +34,11 @@
         <li>Loading...</li>
       </ul>
     </div>
+
+    <div id="badges" class="card hidden">
+      <h3>Your Badges 🎖️</h3>
+      <div id="badgeCards" class="badge-container"></div>
+    </div>
   </div>
 
   <script src="secrets/config.js"></script>
@@ -45,6 +51,8 @@
     script.async = true;
     script.defer = true;
     document.head.appendChild(script);
+
+    document.getElementById('greeting').textContent = `Hey, ${LOGGED_IN_USERNAME}!`;
   </script>
 </body>
 </html>
