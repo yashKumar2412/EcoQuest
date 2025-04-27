@@ -1,10 +1,10 @@
 let map;
+let selectedLatLng = null;
+let marker = null;
 
 function initMap() {
-  //Addded defaultLocation to SJSU
   const defaultLocation = { lat: 37.3387, lng: -121.8853 };
 
-  // Try to get the user's current location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -12,7 +12,6 @@ function initMap() {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-
         createMap(userLocation);
       },
       () => {
@@ -30,7 +29,26 @@ function createMap(location) {
   map = new google.maps.Map(document.getElementById("map"), {
     center: location,
     zoom: 15,
+    mapId: MAP_ID
+  });
+
+  map.addListener('click', function(e) {
+    selectedLatLng = {
+      lat: e.latLng.lat(),
+      lng: e.latLng.lng()
+    };
+    console.log('Selected Location:', selectedLatLng);
+
+    if (marker) {
+      marker.position = selectedLatLng;
+    } else {
+      marker = new google.maps.marker.AdvancedMarkerElement({
+        map,
+        position: selectedLatLng,
+        title: "Selected Cleanup Spot"
+      });
+    }
   });
 }
 
-window.initMap = initMap; 
+window.initMap = initMap;

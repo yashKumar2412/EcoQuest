@@ -1,103 +1,90 @@
-/* General reset and font */
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Poppins', Arial, sans-serif;
-    background: #f5f7fa;
-    color: #333;
-  }
-  
-  /* Centered Title */
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 2.5rem;
-    color: #2E8B57;
-  }
-  
-  /* Map styling */
-  #map {
-    height: 70vh;
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 20px;
-    box-shadow: 0px 0px 6px 6px rgba(0, 225, 53, 0.2);
-  }
-  
-  /* Upload Section */
-  #upload-section {
-    padding: 20px;
-    background: #ffffff;
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: none; /* Hidden initially */
-  }
-  
-  #upload-section h3 {
-    margin-bottom: 10px;
-    color: #4CAF50;
-  }
-  
-  #upload-section input[type="file"], 
-  #upload-section button {
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  #upload-section button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    margin-top: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #upload-section button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Leaderboard */
-  #leaderboard {
-    padding: 20px;
-    background: #e8f5e9;
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  
-  #leaderboard h3 {
-    margin-bottom: 15px;
-    color: #2E7D32;
-  }
-  
-  #leaderboard ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #leaderboard ul li {
-    background: #ffffff;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 2px;
-    border-color: #333;
-  }
-  
-  /* Small screen responsive */
-  @media (max-width: 768px) {
-    #map, #upload-section, #leaderboard {
-      width: 95%;
-    }
-  }
-  
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: #f0f4f3;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+#greeting {
+  font-size: 1.2rem;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#main-buttons {
+  margin-bottom: 20px;
+}
+
+#main-buttons button {
+  margin: 10px;
+  padding: 12px 24px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#main-buttons button:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.card {
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  cursor: crosshair;
+}
+
+#upload-section input[type="file"] {
+  margin: 15px 0;
+}
+
+#leaderboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+#leaderboard ul li {
+  background: #e8f5e9;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 8px;
+}

@@ -7,34 +7,44 @@
 </head>
 
 <body>
-  <h2>EcoQuest</h2>
-  
-  <div id="map"></div>
+  <header>
+    <h1>EcoQuest 🌎</h1>
+    <p>Join the Quest to Clean San Jose!</p>
+    <p id="greeting"></p>
+  </header>
 
-  <div id="upload-section">
-    <h3>Upload Trash Photo 📷</h3>
-    <input type="file" id="photoInput" accept="image/*">
-    <button onclick="submitReport()">Submit Report</button>
+  <div id="main-buttons">
+    <button onclick="showUpload()">🧹 Report a Cleanup</button>
+    <button onclick="showLeaderboard()">🏆 View Leaderboard</button>
   </div>
 
-  <div id="leaderboard">
-    <h3>Leaderboard 🏆</h3>
-    <ul id="leaderboardList">
-      <li>Loading...</li>
-    </ul>
+  <div id="main-content">
+    <div id="map" class="card"></div>
+
+    <div id="upload-section" class="card hidden">
+      <h3>Upload Cleanup Photo 📷</h3>
+      <input type="file" id="photoInput" accept="image/*">
+      <button onclick="submitReport()">Submit Report</button>
+    </div>
+
+    <div id="leaderboard" class="card hidden">
+      <h3>Leaderboard 🏆</h3>
+      <ul id="leaderboardList">
+        <li>Loading...</li>
+      </ul>
+    </div>
   </div>
 
-  <!-- Add the API script for Google Maps -->
-  <script src="secrets/config.js"></script> 
+  <script src="secrets/config.js"></script>
   <script src="map.js"></script>
-  <script src="features.js"></script>
-  
+  <script src="app.js"></script>
+
   <script>
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=marker&callback=initMap&loading=async`;
     script.async = true;
     script.defer = true;
-    document.body.appendChild(script);
+    document.head.appendChild(script);
   </script>
 </body>
 </html>
