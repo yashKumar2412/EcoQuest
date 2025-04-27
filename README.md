@@ -1,76 +1,141 @@
-# **EcoQuest**
+# EcoQuest 🌎
 
-Welcome to the **EcoQuest** – an innovative mobile application designed to help individuals, groups, and organizations participate in cleaning up their local communities, track environmental impact, and raise awareness about pollution. With this app, you can take part in city cleanups, track your progress, and make a positive impact on the environment.
+EcoQuest is a gamified community-driven platform designed to keep our city of San Jose clean, one cleanup at a time!  
+Users can report pollution sightings, earn points and badges, view leaderboards, and track their environmental impact — all through a simple and fun web app experience.
 
-## **Table of Contents**
+---
+
+## 📚 Table of Contents
 
 - [About the App](#about-the-app)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Technologies Used](#technologies-used)
+- [Installation & Setup](#installation--setup)
+- [Usage Instructions](#usage-instructions)
+- [Planned Future Enhancements](#planned-future-enhancements)
 - [Contributing](#contributing)
-- [License](#license)
 
-## **About the App**
-
-The **EcoQuest** allows users to participate in community-based cleanup events, track litter and pollution levels, and monitor the positive impact they’re making. Whether you’re organizing a cleanup event or simply tracking your own contributions, this app helps foster a cleaner, greener city.
-
-### **Storyline**
-
-In **EcoQuest**, you become an adventurer, part of a movement to keep your city clean. Whether it’s removing litter from parks or participating in large community cleanup events, you’ll help make your neighborhood a better place to live.
-
-## **Features**
-
-- **Pollution Mapping**: Track litter and pollution in different areas of the city, and report pollution hotspots.
-- **Progress Tracking**: Monitor your contributions and the total amount of waste cleaned up over time.
-- **Rewards and Badges**: Earn rewards and achievements for participating in cleanups and tracking environmental impact.
-- **Social Sharing**: Share your progress and encourage others to join the movement through social media integration.
-
-## **Installation**
-
-To install the EcoQuest on your device, follow the steps below:
-
-### **For Android (via APK)**
-
-1. Clone the GitHub rep from (https://github.com/yourusername/city-cleanup-app/releases).
-2. (Applicable to SJHacks Only) ping yashk2412 on Discord to get config files, Or generate your own GOOGLE MAP API key from https://developers.google.com/maps/documentation/embed/get-api-key, and firebase key. 
-3. Run the App, Mess around with the code, Contribute to the open source cause, and Have Fun!
 ---
 
-## **Usage**
+## 🌟 About the App
 
-Once the app is installed, open the **EcoQuest** to start making a difference! Here’s a quick guide on how to use the app:
+EcoQuest encourages local communities to actively participate in cleaning up their environment.  
+By making environmental action **fun, trackable, and rewarding**, we aim to create a stronger bond between people and their surroundings.
 
+---
 
-### **Track Your Progress**
+## 🚀 Features
 
-- Use the map feature to identify pollution hotspots that need attention.
+- 📸 Report pollution spots with photo uploads and geolocation tagging
+- 🟨 Visualize cleanup locations on an interactive Google Map
+- 🏆 Earn points and unlock badges as you contribute
+- 📋 View your personal cleanup history
+- 🏅 Compete on the live community leaderboard
+- 💖 Collect unique badges based on your contributions
+- 🚹 Real-time updates without any page reloads
+---
 
-### **Earn Badges and Rewards**
+## 🛠️ Technologies Used
 
-- Earn points and badges for every cleanup event you join and every piece of trash you collect.
-- Track your milestones and share your accomplishments with friends and family.
+| Layer | Technologies |
+|:---|:---|
+| Frontend | HTML, CSS, JavaScript |
+| Backend | Python (FastAPI) |
+| Database | Google Firebase Firestore |
+| Maps | Google Maps JavaScript API |
+| Authentication | (Planned future enhancement) |
+| Hosting | Localhost (demo version) |
 
-### **Social Features**
+---
 
-- Invite your friends to join you in cleanups and share your achievements on social media.
-- Engage with your local community to promote clean streets and sustainability.
+## 🛠️ Installation & Setup
 
-## **Technologies Used**
+1. **Clone the Repository**
 
-- **Frontend**: HTML, CSS, and pure JavaScript.
-- **Backend**: Python(Flask).
-- **Database**: Firebase for real-time data storage and user authentication.
-- **Maps**: Google Maps API for location tracking and event mapping.
-- **Social Sharing**: Integration with social media platforms (Facebook, Twitter, Instagram).
+```bash
+git clone https://github.com/your-username/ecoquest.git
+cd ecoquest/backend
+```
 
-## **Contributing**
+2. **Install Python dependencies**
 
-We welcome contributions from everyone! To contribute to the EcoQuest:
+```bash
+pip install -r requirements.txt
+```
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Write tests and make sure everything works before submitting a pull request.
+3. **Set up Firebase**
+- Create a Firestore database from the Firebase Console.
+- Download your **serviceAccountKey.json** and place it in `app/secrets/`.
+- Update the SERVICE_ACCOUNT_PATH variable in db.py with appropriate Firebase API key.
 
-If you have suggestions for new features or improvements, feel free to create an issue or submit a pull request!
+4. **Upload Sample Data (Optional)**
+- Create a folder 'images' inside your backend/app folder with stock images (1.jpeg to 5.jpeg).
+- Create a folder 'uploads' inside your backend folder for image storage per report.
+- Run the script to load default users and generate cleanup reports:
+
+```bash
+cd app
+python load_data.py
+```
+
+5. **Configure Google Maps API Key**
+- Create a new API key from Google Cloud Console.
+- Enable Maps JavaScript API for your project.
+- In frontend/secrets/config.js, add your API key like:
+
+```javascript
+const GOOGLE_MAPS_API_KEY = "your-api-key-here";
+const BACKEND_URL = "http://127.0.0.1:8000";
+const LOGGED_IN_USERNAME = "YourUsername";
+```
+
+6. **Run FastAPI Server**
+
+```bash
+uvicorn app.main:app --reload
+```
+
+7. **Frontend Access**
+- Open `frontend/index.html` directly in your browser.
+- Make sure the `BACKEND_URL` in your `config.js` matches your FastAPI server (e.g., `http://127.0.0.1:8000`).
+
+---
+
+## 📋 Usage Instructions
+
+- Click **"Report Cleanup"** to drop a pin and submit a pollution report with a photo.
+- View your **Leaderboard** position as you collect points.
+- Check your **Badges** as you unlock environmental achievements.
+- Visit **My Reports** to see all cleanups you contributed to!
+
+---
+
+## 🚀 Planned Future Enhancements
+
+- 🛡️ User login/signup (authentication)
+- 🌐 Deploy backend and frontend to cloud hosting (e.g., AWS, GCP)
+- 📱 Responsive mobile UI improvements
+- 📣 Social media sharing (Facebook, Twitter integrations)
+- 🌆 City-wide cleanup events and leaderboards
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions to EcoQuest!
+
+- Fork the repository
+- Create your feature branch: `git checkout -b my-feature`
+- Commit your changes: `git commit -m 'Add some feature'`
+- Push to the branch: `git push origin my-feature`
+- Open a Pull Request 🚀
+
+---
+
+## 📜 License
+
+This project is open source under the [MIT License](LICENSE).
+
+---
+
+### 🌎 EcoQuest — Clean Cities. Connected Communities. 🪹
