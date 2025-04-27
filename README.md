@@ -5,18 +5,6 @@ Users can report pollution sightings, earn points and badges, view leaderboards,
 
 ---
 
-## 📚 Table of Contents
-
-- [About the App](#about-the-app)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation & Setup](#installation--setup)
-- [Usage Instructions](#usage-instructions)
-- [Planned Future Enhancements](#planned-future-enhancements)
-- [Contributing](#contributing)
-
----
-
 ## 🌟 About the App
 
 EcoQuest encourages local communities to actively participate in cleaning up their environment.  
