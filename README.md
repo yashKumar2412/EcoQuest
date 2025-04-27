@@ -10,6 +10,8 @@ Users can report pollution sightings, earn points and badges, view leaderboards,
 EcoQuest encourages local communities to actively participate in cleaning up their environment.  
 By making environmental action **fun, trackable, and rewarding**, we aim to create a stronger bond between people and their surroundings.
 
+Check out the [Youtube Video](https://youtu.be/842AK8k3-_I?si=2CL9FMEn8XOAoKj4) & [Presentation](https://docs.google.com/presentation/d/1bypuOZK_MpyPuDk7_ehjRW469wWCU4ChBJJqVqGNOwg/edit?usp=sharing) for walkthrough & details!
+
 ---
 
 ## 🚀 Features
